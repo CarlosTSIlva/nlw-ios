@@ -8,17 +8,17 @@
 import Foundation
 import UIKit
 
-class FlowCoondinator {
+class NearbyFlowController {
     private var navigationController: UINavigationController?
     
     public init() {
     }
     
     func start() -> UINavigationController? {
-        let startViewController = UIViewController()
-        startViewController.view.backgroundColor = .red
-        
+        let contentView = SpashView()
+        let startViewController = SpashViewController(contentView: contentView)
         self.navigationController = UINavigationController(rootViewController: startViewController)
+        
         
         return navigationController
     }
