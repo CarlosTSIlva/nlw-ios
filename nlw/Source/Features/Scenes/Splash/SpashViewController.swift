@@ -10,9 +10,13 @@ import UIKit
 
 class SpashViewController: UIViewController {
     let contentView: SpashView
+    weak var delegate: SpashFlowDelegate?
     
-    init(contentView: SpashView) {
+    init(contentView: SpashView,
+         delegate: SpashFlowDelegate
+    ) {
         self.contentView = contentView
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -23,6 +27,7 @@ class SpashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        decideFlow()
     }
     
     private func setup() {
@@ -42,5 +47,11 @@ class SpashViewController: UIViewController {
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             
         ])
+    }
+    
+    private func decideFlow() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
+            self?.delegate?.decideNavigationFlow()
+        }
     }
 }

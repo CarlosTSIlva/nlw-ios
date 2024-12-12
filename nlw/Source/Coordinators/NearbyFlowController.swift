@@ -16,10 +16,21 @@ class NearbyFlowController {
     
     func start() -> UINavigationController? {
         let contentView = SpashView()
-        let startViewController = SpashViewController(contentView: contentView)
+        let startViewController = SpashViewController(contentView: contentView, delegate: self)
         self.navigationController = UINavigationController(rootViewController: startViewController)
         
         
         return navigationController
     }
+    
+}
+
+extension NearbyFlowController: SpashFlowDelegate {
+    func decideNavigationFlow() {
+        let contentView = WelcomeView()
+        let welcomeViewController = WelcomeViewController(contentView: contentView)
+        navigationController?.pushViewController(welcomeViewController, animated: true)
+    }
+    
+    
 }
