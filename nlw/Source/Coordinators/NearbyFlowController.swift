@@ -15,8 +15,9 @@ class NearbyFlowController {
     }
     
     func start() -> UINavigationController? {
-        let contentView = SpashView()
-        let startViewController = SpashViewController(contentView: contentView, delegate: self)
+//        let contentView = SpashView()
+//        let startViewController = SpashViewController(contentView: contentView, delegate: self)
+        let startViewController = HomeViewController()
         self.navigationController = UINavigationController(rootViewController: startViewController)
         
         

@@ -44,6 +44,7 @@ class SpashView: UIView {
         NSLayoutConstraint.activate([
             logoImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             logoImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            
             backgroundImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             backgroundImageView.rightAnchor.constraint(equalTo: self.rightAnchor),
             backgroundImageView.leftAnchor.constraint(equalTo: self.leftAnchor)

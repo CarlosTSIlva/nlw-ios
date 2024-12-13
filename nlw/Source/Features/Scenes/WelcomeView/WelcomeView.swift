@@ -25,7 +25,7 @@ class WelcomeView: UIView {
         label.text = "Boas vindas ao Nearby!"
         label.font = Typography.titleXL
         label.numberOfLines = 0
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -83,6 +83,7 @@ class WelcomeView: UIView {
     }
     
     private func setupUI() {
+        
         setupTips()
         addSubview(logoImageView)
         addSubview(welcomeLabel)
@@ -101,8 +102,8 @@ class WelcomeView: UIView {
             logoImageView.heightAnchor.constraint(equalToConstant: 48),
             
             welcomeLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 24),
-            welcomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            
+            welcomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
+            welcomeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
             
             descriptionLabel.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 16),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
@@ -116,7 +117,7 @@ class WelcomeView: UIView {
             tipsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             tipsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
             
-            startButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24),
+            startButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             startButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             startButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
             startButton.heightAnchor.constraint(equalToConstant: 56)
